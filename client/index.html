@@ -44,6 +44,12 @@
             $("#append-btn").click(function () {
                 $(`#test-line`).append("<h2>Thanh đẹp giai</h2>")
             })
+            $("#prepend-btn").click(function () {
+                $(`#test-line`).prepend("<h2>Vui vẻ</h2>")
+            })
+            $("#before-btn").click(function () {
+                $(`#test-line`).before("<h2>Xém học giỏi</h2>")
+            })
 
             $("#after-btn").click(function () {
                 $(`#test-line`).after("<h2>Thanh Thanh</h2>")
@@ -75,6 +81,8 @@
     <!-- ADD -->
     <h4>ADD</h4>
     <button id="append-btn">Append Text</button>
+    <button id="prepend-btn">Prepend Text</button>
+    <button id="before-btn">Before Text</button>
     <button id="after-btn">After Text</button>
 
 </body>
