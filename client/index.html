@@ -26,6 +26,10 @@
             })
 
             //SET
+            $("#set-text-btn").click(function () {
+                $(`#test-line`).text("Thanh đẹp zai")
+            })
+
 
             $("#set-HTML-btn").click(function () {
                 $(`#test-line`).html("<p>Thanh đẹp giai</p>")
@@ -36,7 +40,7 @@
             })
 
             $("#set-attr-btn").click(function () {
-                $(`#label`).attr('style="background-color: tomato;color:white;padding:8px"')
+                $(`#label`).attr('style', "background-color: tomato;color:white;padding:8px")
             })
 
             //ADD
@@ -50,7 +54,6 @@
             $("#before-btn").click(function () {
                 $(`#test-line`).before("<h2>Xém học giỏi</h2>")
             })
-
             $("#after-btn").click(function () {
                 $(`#test-line`).after("<h2>Thanh Thanh</h2>")
             })
@@ -59,11 +62,14 @@
 </head>
 
 <body>
+    <p id="test-line" style="background-color: tomato;color:white;padding:8px;width: 150px;">Bài Tập <b>TEST</b> JQuery
+    </p>
+    <label id="label" for="username">Username</label>
+    <input name="username" id="username-input" value="Test JQuery" type="text">
     <p id="test-line" style="background-color: tomato;color:white;padding:8px;width: 150px;">This is <b>TEST</b> line
     </p>
     <label id="label" for="username">Username</label>
     <input name="username" id="username-input" value="Quang kute hot me" type="text">
-
     <!-- GET -->
     <h4>GET</h4>
     <button id="get-text-btn">Get Text</button>
@@ -78,7 +84,7 @@
     <button id="set-value-btn">Set Value</button>
     <button id="set-attr-btn">Set Attr</button>
 
-    <!-- ADD -->
+    <!-- ADD before and prepend -->
     <h4>ADD</h4>
     <button id="append-btn">Append Text</button>
     <button id="prepend-btn">Prepend Text</button>
