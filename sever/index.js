@@ -1,28 +1,42 @@
-// Import or riquire EXPRESSJS
+
+//  REQUIRE EXPRESSJS
 const express = require('express')
 
-const usersRoutes = require('./Routes/users.routes')
+const { readFile, readFileSync } = require('./controllers/home.controller')
 
-// ASSIGN APP VARIABLE AND CREATE SEVER
+const usersRoute = require('./routes/users.route')
+const postsRoute = require('./routes/posts.route')
+const loginRoute = require('./routes/login.route')
+
+//  ASSIGN APP VARIABLE AND CREATE SERVER
 const app = express()
 const port = 3000
 
-app.set("view engine", "pug");
-app.set("views", "./views")
+//  
+app.set('view engine', 'pug')
+app.set('views', './views')
 
-app.use('/users', (req, res, next) => {
-    console.log(`The request recieved at:`, new Date())
-    next()
+app.use('/' ,(req, res, next) => {
+  console.log(`The request received at: `, new Date());
+  next()
 })
-// REQUEST AND RESPONE
+
+app.use(express.urlencoded({
+  extended: true
+}))
+
 app.get('/', (req, res) => {
-    res.send('<h3 style= "color:red">Home</h3>');
-
+  res.render('home')
 })
-app.use('/users', usersRoutes)
-// app.get('*', (req, res) => {
-//     res.send('<h3 style= "color:red">Lỗi rồi tía !!</h3>');
-// })
+
+app.use('/users', usersRoute)
+app.use('/posts', postsRoute)
+app.use('/login', loginRoute)
+
+app.get('*', (req, res) => {
+  res.send('<h3 style="color:tomato;">404 NOT FOUND!</h3>')
+})
+
 app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`)
+  console.log(`Example app listening at http://localhost:${port}`)
 })
